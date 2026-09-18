@@ -53,16 +53,16 @@ timeline:
   start: "FY27.Q1"
   end: "FY28.Q4"
 domains:
-  - name: "Customer Platform"
+  - name: "Core Platform"
     icon: "gear.png"        # looked up in the resolved icon directory
     tracks:
-      - name: "Storefront Modernisation"
+      - name: "Platform Rebuild"
         events:
           - {type: start, period: "FY27.Q1", label: "Kickoff"}
           - {type: milestone, period: "FY27.Q3", label: "Pilot Live", highlight: true}
           - {type: delivery, period: "FY28.Q2", label: "GA Release"}
 dependencies:
-  - from_event: "customer_platform.storefront_modernisation.<event_id>"
+  - from_event: "core_platform.platform_rebuild.<event_id>"
     to_event: "other_domain.other_track.<event_id>"
     style: dashed
     label: "enables"

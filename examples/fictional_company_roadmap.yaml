@@ -1,5 +1,5 @@
-# Fully synthetic demo roadmap. All company, product and vendor names below are
-# invented for illustration purposes only.
+# Fully synthetic demo roadmap. All names below are generic placeholders,
+# not tied to any specific company, product, vendor, or type of platform.
 
 title: "Architecture Roadmap"
 
@@ -8,68 +8,68 @@ timeline:
   end: "FY30.Q4"
 
 domains:
-  - name: "Customer Platform"
+  - name: "Core Platform"
     icon: "gear.png"
     tracks:
-      - name: "Storefront Modernisation"
+      - name: "Platform Rebuild"
         events:
-          - {type: start, period: "FY27.Q2", label: "Kick off Storefront Rebuild"}
-          - {type: milestone, period: "FY28.Q3", label: "Storefront Platform GA"}
-          - {type: delivery, period: "FY30.Q1", label: "Legacy Storefront Decommissioned"}
+          - {type: start, period: "FY27.Q2", label: "Kickoff"}
+          - {type: milestone, period: "FY28.Q3", label: "Platform GA"}
+          - {type: delivery, period: "FY30.Q1", label: "Legacy System Decommissioned"}
       - name: "Support Operations"
         events:
-          - {type: milestone, period: "FY27.Q4", label: "Ticketing Migration Complete"}
+          - {type: milestone, period: "FY27.Q4", label: "Process Migration Complete"}
           - {type: milestone, period: "FY28.Q2", label: "Knowledge Base Launched"}
           - {type: milestone, period: "FY29.Q1", label: "Omnichannel Support Live"}
-          - {type: milestone, period: "FY29.Q3", label: "Support Bot Rollout Complete"}
+          - {type: milestone, period: "FY29.Q3", label: "Support Automation Rollout Complete"}
 
-  - name: "AI Capability Evolution"
+  - name: "AI Agent"
     icon: "gear.png"
     tracks:
-      - name: "Conversational AI"
+      - name: "Agent Rollout"
         events:
-          - {type: start, period: "FY27.Q2", label: "Conversational AI Programme Kickoff"}
-          - {type: milestone, period: "FY27.Q4", label: "Virtual Assistant Pilot Live", highlight: true}
-          - {type: milestone, period: "FY28.Q1", label: "Guided Selling Journeys Launched"}
-          - {type: milestone, period: "FY28.Q3", label: "Voice-enabled Assistant GA"}
-          - {type: milestone, period: "FY29.Q1", label: "Proactive Service Agents Live"}
-          - {type: milestone, period: "FY29.Q4", label: "Assistant Contract Renewal"}
+          - {type: start, period: "FY27.Q2", label: "Programme Kickoff"}
+          - {type: milestone, period: "FY27.Q4", label: "Agent Pilot Live", highlight: true}
+          - {type: milestone, period: "FY28.Q1", label: "Guided Journeys Launched"}
+          - {type: milestone, period: "FY28.Q3", label: "Voice-enabled Agent GA"}
+          - {type: milestone, period: "FY29.Q1", label: "Proactive Agents Live"}
+          - {type: milestone, period: "FY29.Q4", label: "Agent Contract Renewal"}
       - name: "Data & Insights"
         events:
           - {type: start, period: "FY27.Q1", label: "Insights Platform Kickoff"}
           - {type: milestone, period: "FY27.Q4", label: "Forecasting Model v1"}
-          - {id: vendor_analytics_live, type: milestone, period: "FY28.Q1", label: "Vendor Analytics Add-on Live", highlight: true}
-          - {type: milestone, period: "FY28.Q4", label: "Dynamic Pricing Engine Live"}
+          - {id: analytics_add_on_live, type: milestone, period: "FY28.Q1", label: "Analytics Add-on Live", highlight: true}
+          - {type: milestone, period: "FY28.Q4", label: "Pricing Engine Live"}
           - {type: milestone, period: "FY29.Q3", label: "Partner Data Alignment Complete", highlight: true}
 
-  - name: "Platform Modernisation and Rationalisation"
+  - name: "Platform Upgrade"
     icon: "gear.png"
     tracks:
-      - name: "Cloud Migration"
+      - name: "Infrastructure Migration"
         events:
-          - {type: start, period: "FY27.Q2", label: "Cloud Migration Programme Kickoff"}
-          - {type: milestone, period: "FY27.Q4", label: "Workload Group A in Cloud"}
-          - {type: milestone, period: "FY28.Q1", label: "Workload Group B in Cloud"}
-          - {id: bulk_migration_complete, type: delivery, period: "FY29.Q1", label: "Bulk Workload Migration Complete"}
-      - name: "Partner Integration Rationalisation"
+          - {type: start, period: "FY27.Q2", label: "Migration Programme Kickoff"}
+          - {type: milestone, period: "FY27.Q4", label: "Workload Group A Migrated"}
+          - {type: milestone, period: "FY28.Q1", label: "Workload Group B Migrated"}
+          - {id: bulk_migration_complete, type: delivery, period: "FY29.Q1", label: "Bulk Migration Complete"}
+      - name: "Vendor Consolidation"
         events:
-          - {type: start, period: "FY27.Q2", label: "Partner Integration Rationalisation", highlight: true}
-          - {type: milestone, period: "FY27.Q4", label: "Partner Onboarding Revamp"}
-          - {type: delivery, period: "FY28.Q1", label: "Billing Platform Migrated", highlight: true}
-          - {type: milestone, period: "FY29.Q1", label: "Contract Platform Parallel Run"}
-          - {type: milestone, period: "FY29.Q3", label: "Contract Platform Cutover"}
-          - {type: delivery, period: "FY30.Q1", label: "Contract Platform Upgrade"}
-          - {type: milestone, period: "FY30.Q3", label: "Vendor Consolidation Review"}
+          - {type: start, period: "FY27.Q2", label: "Vendor Consolidation Kickoff", highlight: true}
+          - {type: milestone, period: "FY27.Q4", label: "Onboarding Revamp"}
+          - {type: delivery, period: "FY28.Q1", label: "Core System Migrated", highlight: true}
+          - {type: milestone, period: "FY29.Q1", label: "System Parallel Run"}
+          - {type: milestone, period: "FY29.Q3", label: "System Cutover"}
+          - {type: delivery, period: "FY30.Q1", label: "Platform Upgrade Complete"}
+          - {type: milestone, period: "FY30.Q3", label: "Vendor Review"}
           - {type: delivery, period: "FY30.Q4", label: "Legacy Vendor Replacement", highlight: true}
-      - name: "App Retirement Wave A"
+      - name: "Retirement Wave A"
         events:
-          - {type: start, period: "FY27.Q2", label: "App Retirement Wave A Kickoff"}
-          - {id: wave_a_migrated, type: milestone, period: "FY29.Q1", label: "Wave A Apps Migrated"}
+          - {type: start, period: "FY27.Q2", label: "Retirement Wave A Kickoff"}
+          - {id: wave_a_migrated, type: milestone, period: "FY29.Q1", label: "Wave A Migrated"}
           - {type: delivery, period: "FY30.Q1", label: "Wave A Retirement Complete", highlight: true}
-          - {type: delivery, period: "FY30.Q4", label: "Wave A Apps Fully Retired"}
-      - name: "App Retirement Wave B"
+          - {type: delivery, period: "FY30.Q4", label: "Wave A Fully Retired"}
+      - name: "Retirement Wave B"
         events:
-          - {type: start, period: "FY27.Q2", label: "App Retirement Wave B Kickoff"}
+          - {type: start, period: "FY27.Q2", label: "Retirement Wave B Kickoff"}
           - {type: delivery, period: "FY29.Q1", label: "Wave B Build Complete"}
           - {type: milestone, period: "FY30.Q1", label: "Wave B Migration Complete"}
           - {type: delivery, period: "FY30.Q4", label: "Wave B Retirement Complete"}
@@ -83,6 +83,6 @@ domains:
           - {type: end, period: "FY28.Q4", label: ""}
 
 dependencies:
-  - from_event: "platform_modernisation_and_rationalisation.cloud_migration.bulk_migration_complete"
-    to_event: "platform_modernisation_and_rationalisation.app_retirement_wave_a.wave_a_migrated"
+  - from_event: "platform_upgrade.infrastructure_migration.bulk_migration_complete"
+    to_event: "platform_upgrade.retirement_wave_a.wave_a_migrated"
     style: converge

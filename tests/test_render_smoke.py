@@ -35,9 +35,9 @@ def test_render_example_roadmap_end_to_end(tmp_path):
 
     text = _all_text(slide)
     assert "Architecture Roadmap" in text
-    assert "Customer Platform" in text
-    assert "Kick off Storefront Rebuild" in text
-    assert "Virtual Assistant Pilot Live" in text
+    assert "Core Platform" in text
+    assert "Kickoff" in text
+    assert "Agent Pilot Live" in text
     # No confidentiality watermark unless the roadmap explicitly opts in.
     assert "Confidential" not in text
 
