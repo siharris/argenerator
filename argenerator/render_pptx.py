@@ -280,6 +280,27 @@ def _render_event(slide, position: EventPosition, theme: Theme) -> None:
     )
 
 
+_MERGE_GUTTER_WIDTH = Inches(0.35)
+
+
+def _render_merge(slide, start_x: int, start_y: int, end_x: int, end_y: int, color: str, width: Emu) -> None:
+    """Draw a track-termination merge without sweeping a long diagonal across
+    every row between source and target.
+
+    The source's row is already empty past `start_x` (its line was shortened
+    there), so a flat tail at `start_y` crosses nothing no matter how long it
+    runs. Only the short curved drop at the end actually spans other rows'
+    y-positions, and confining it to a narrow x-band keeps that crossing to a
+    thin sliver instead of a wide diagonal band.
+    """
+    gutter_x = end_x - _MERGE_GUTTER_WIDTH
+    if gutter_x > start_x:
+        _add_connector(slide, start_x, start_y, gutter_x, start_y, color, width)
+        _add_connector(slide, gutter_x, start_y, end_x, end_y, color, width, curved=True)
+    else:
+        _add_connector(slide, start_x, start_y, end_x, end_y, color, width, curved=True)
+
+
 def _render_dependency(slide, dependency_layout: DependencyLayout, theme: Theme) -> None:
     dep = dependency_layout.dependency
 
@@ -288,7 +309,7 @@ def _render_dependency(slide, dependency_layout: DependencyLayout, theme: Theme)
         # curved solid continuation into the target so the two visually become one
         # line, rather than an annotation arrow pointing at an otherwise-unrelated
         # point. A curve reads as a merge; a straight diagonal reads as a pointer.
-        _add_connector(
+        _render_merge(
             slide,
             dependency_layout.start.x,
             dependency_layout.start.y,
@@ -296,7 +317,6 @@ def _render_dependency(slide, dependency_layout: DependencyLayout, theme: Theme)
             dependency_layout.end.y,
             theme.track_line_color,
             Pt(1.5),
-            curved=True,
         )
         return
 
