@@ -4,8 +4,11 @@ Render architecture roadmaps — a time axis across the top, capability domains 
 side, forking initiative tracks with milestones and deliveries — from a hand-edited YAML
 file to a PowerPoint slide.
 
-No LLM/AI is involved: this is a deterministic renderer. The YAML file is the durable
-source of truth (roadmap-as-code); re-run the CLI any time you edit it.
+![Example roadmap rendered by argenerator](docs/example_roadmap.png)
+
+This is a deterministic renderer: the same YAML always produces the same slide, with no
+model in the loop. The YAML file is the durable source of truth (roadmap-as-code);
+re-run the CLI any time you edit it.
 
 ## Install
 
@@ -16,8 +19,8 @@ pip install -e .
 ## Usage
 
 ```
-argenerator render examples/roadmap.yaml -o roadmap.pptx
-argenerator validate examples/roadmap.yaml
+argenerator render examples/fictional_company_roadmap.yaml -o roadmap.pptx
+argenerator validate examples/fictional_company_roadmap.yaml
 ```
 
 Options for `render`:
@@ -36,29 +39,36 @@ timeline:
   start: "FY27.Q1"
   end: "FY28.Q4"
 domains:
-  - name: "Strategic Products"
+  - name: "Customer Platform"
     icon: "gear.png"        # looked up in the resolved icon directory
     tracks:
-      - name: "Agentforce Rollout"
+      - name: "Storefront Modernisation"
         events:
           - {type: start, period: "FY27.Q1", label: "Kickoff"}
           - {type: milestone, period: "FY27.Q3", label: "Pilot Live", highlight: true}
           - {type: delivery, period: "FY28.Q2", label: "GA Release"}
 dependencies:
-  - from_event: "strategic_products.agentforce_rollout.<event_id>"
+  - from_event: "customer_platform.storefront_modernisation.<event_id>"
     to_event: "other_domain.other_track.<event_id>"
     style: dashed
     label: "enables"
 ```
 
-- `type` is one of `start` (label only, no marker), `milestone` (hollow circle), or
-  `delivery` (filled square).
+- `type` is one of `start` (label only, no marker), `milestone` (hollow circle),
+  `delivery` (filled square), or `end` (label only — explicitly stops the track's line
+  there instead of running it to the timeline's right edge).
 - `id` fields are optional and auto-generated from names/labels if omitted; set them
   explicitly when you need a stable reference for `dependencies`.
 - The fork point where a domain's tracks branch out is derived automatically from the
   domain's track list — it isn't authored in the YAML.
+- A dependency's `style` is `arrow` or `dashed` for an annotation pointer, or `converge`
+  to make the source track's line stop at that event and curve solidly into the target,
+  reading as a merge rather than a pointer.
 
-See `examples/roadmap.yaml` for a complete example.
+See `examples/` for complete examples:
+- `fictional_company_roadmap.yaml` — the roadmap pictured above.
+- `fictional_platform_convergence.yaml` — four tracks converging into two, then one.
+- `raf_bomber_convergence.yaml` — a short annual (non-quarterly) timeline.
 
 ## Tests
 

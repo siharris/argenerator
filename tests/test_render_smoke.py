@@ -7,7 +7,7 @@ from argenerator.render_pptx import render_roadmap
 from argenerator.schema import load_roadmap
 from argenerator.theme import Theme
 
-EXAMPLE_ROADMAP = Path(__file__).parent.parent / "examples" / "roadmap.yaml"
+EXAMPLE_ROADMAP = Path(__file__).parent.parent / "examples" / "fictional_company_roadmap.yaml"
 
 
 def _all_text(slide) -> str:
@@ -35,7 +35,7 @@ def test_render_example_roadmap_end_to_end(tmp_path):
 
     text = _all_text(slide)
     assert "Architecture Roadmap" in text
-    assert "Strategic Products" in text
-    assert "Assessment Complete" in text
-    assert "Pilot Live (Agentforce)" in text
+    assert "Customer Platform" in text
+    assert "Kick off Storefront Rebuild" in text
+    assert "Virtual Assistant Pilot Live" in text
     assert "Highly Confidential" in text
