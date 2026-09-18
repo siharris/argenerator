@@ -359,32 +359,36 @@ def _render_dependency(slide, dependency_layout: DependencyLayout, theme: Theme)
 def _render_footer(slide, layout: RoadmapLayout, theme: Theme) -> None:
     geom = layout.geometry
     footer_y = geom.slide_height - geom.footer_height
-    _add_textbox(
-        slide,
-        geom.left_margin,
-        footer_y,
-        Inches(3.0),
-        geom.footer_height,
-        layout.roadmap.footer_link_text,
-        theme.font,
-        theme.font.footer_size,
-        theme.footer_text_color,
-        align=PP_ALIGN.LEFT,
-        anchor=MSO_ANCHOR.MIDDLE,
-    )
-    _add_textbox(
-        slide,
-        geom.slide_width - geom.right_margin - Inches(2.0),
-        footer_y,
-        Inches(2.0),
-        geom.footer_height,
-        layout.roadmap.confidentiality_text,
-        theme.font,
-        theme.font.footer_size,
-        theme.footer_text_color,
-        align=PP_ALIGN.RIGHT,
-        anchor=MSO_ANCHOR.MIDDLE,
-    )
+
+    if layout.roadmap.footer_link_text:
+        _add_textbox(
+            slide,
+            geom.left_margin,
+            footer_y,
+            Inches(3.0),
+            geom.footer_height,
+            layout.roadmap.footer_link_text,
+            theme.font,
+            theme.font.footer_size,
+            theme.footer_text_color,
+            align=PP_ALIGN.LEFT,
+            anchor=MSO_ANCHOR.MIDDLE,
+        )
+
+    if layout.roadmap.confidentiality_text:
+        _add_textbox(
+            slide,
+            geom.slide_width - geom.right_margin - Inches(2.0),
+            footer_y,
+            Inches(2.0),
+            geom.footer_height,
+            layout.roadmap.confidentiality_text,
+            theme.font,
+            theme.font.footer_size,
+            theme.footer_text_color,
+            align=PP_ALIGN.RIGHT,
+            anchor=MSO_ANCHOR.MIDDLE,
+        )
 
 
 def render_roadmap(

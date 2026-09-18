@@ -29,7 +29,21 @@ Options for `render`:
   `icon_dir` and the default `icons/` folder next to the YAML file. Falls back to a
   bundled default gear icon if a domain's `icon` isn't found.
 - `--theme FILE` — a YAML/JSON file of colour/font overrides, merged over the built-in
-  palette. See `argenerator/theme.py` for all overridable fields.
+  palette (blue by default). See `argenerator/theme.py` for all overridable fields, e.g.:
+  ```yaml
+  domain_badge_fill: "#1B4F8C"
+  track_line_color: "#1B4F8C"
+  milestone_outline: "#1B4F8C"
+  ```
+
+Two roadmap-level fields control the footer text. `footer_link_text` defaults to
+"Link to Roadmap timeline"; `confidentiality_text` defaults to empty (no watermark) —
+set either in the YAML to change or opt in:
+
+```yaml
+footer_link_text: "Link to Roadmap timeline"  # set to "" to hide
+confidentiality_text: "Highly Confidential"   # empty by default
+```
 
 ## Roadmap YAML shape
 

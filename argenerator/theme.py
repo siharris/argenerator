@@ -1,5 +1,6 @@
-"""Colour/font theme, defaulting to the reference roadmap palette. Swappable like icons:
-a user-supplied YAML/JSON file is merged over the defaults so partial overrides work."""
+"""Colour/font theme, defaulting to a blue palette. Fully swappable like icons: a
+user-supplied YAML/JSON file (via `--theme` or `Roadmap.theme`) is merged over these
+defaults, so partial overrides work."""
 
 from __future__ import annotations
 
@@ -21,21 +22,21 @@ class FontTheme(BaseModel):
 
 class Theme(BaseModel):
     background_fill: str = "#FFFFFF"
-    title_color: str = "#4B2E83"
+    title_color: str = "#1B4F8C"
 
-    domain_badge_fill: str = "#4B2E83"
+    domain_badge_fill: str = "#1B4F8C"
     domain_badge_text: str = "#FFFFFF"
 
     header_fy_fill: str = "#BFBFBF"
     header_q_fill: str = "#D9D9D9"
     header_text: str = "#000000"
 
-    track_line_color: str = "#4B2E83"
+    track_line_color: str = "#1B4F8C"
 
-    milestone_outline: str = "#4B2E83"
+    milestone_outline: str = "#1B4F8C"
     milestone_fill: str = "#FFFFFF"
-    delivery_fill: str = "#4B2E83"
-    branch_outline: str = "#4B2E83"
+    delivery_fill: str = "#1B4F8C"
+    branch_outline: str = "#1B4F8C"
     branch_fill: str = "#FFFFFF"
 
     highlight_underline_color: str = "#E8622C"

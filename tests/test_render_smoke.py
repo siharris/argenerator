@@ -38,4 +38,18 @@ def test_render_example_roadmap_end_to_end(tmp_path):
     assert "Customer Platform" in text
     assert "Kick off Storefront Rebuild" in text
     assert "Virtual Assistant Pilot Live" in text
+    # No confidentiality watermark unless the roadmap explicitly opts in.
+    assert "Confidential" not in text
+
+
+def test_confidentiality_watermark_renders_when_set(tmp_path):
+    roadmap = load_roadmap(EXAMPLE_ROADMAP)
+    roadmap.confidentiality_text = "Highly Confidential"
+    layout = compute_layout(roadmap)
+    output_path = tmp_path / "roadmap.pptx"
+
+    render_roadmap(layout, output_path, Theme(), EXAMPLE_ROADMAP)
+
+    presentation = Presentation(str(output_path))
+    text = _all_text(presentation.slides[0])
     assert "Highly Confidential" in text

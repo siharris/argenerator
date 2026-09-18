@@ -81,7 +81,8 @@ class Roadmap(BaseModel):
     domains: list[Domain]
     dependencies: list[Dependency] = Field(default_factory=list)
     footer_link_text: str = "Link to Roadmap timeline"
-    confidentiality_text: str = "Highly Confidential"
+    # Empty by default -- no watermark unless the roadmap author opts into one.
+    confidentiality_text: str = ""
     theme: str | None = None
     icon_dir: str | None = None
 
