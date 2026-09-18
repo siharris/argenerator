@@ -8,7 +8,7 @@ timeline:
   end: "FY30.Q4"
 
 domains:
-  - name: "Core Platform"
+  - name: "Platform X"
     icon: "gear.png"
     tracks:
       - name: "Platform Rebuild"

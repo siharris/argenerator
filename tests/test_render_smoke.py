@@ -35,7 +35,7 @@ def test_render_example_roadmap_end_to_end(tmp_path):
 
     text = _all_text(slide)
     assert "Architecture Roadmap" in text
-    assert "Core Platform" in text
+    assert "Platform X" in text
     assert "Kickoff" in text
     assert "Agent Pilot Live" in text
     # No confidentiality watermark unless the roadmap explicitly opts in.
