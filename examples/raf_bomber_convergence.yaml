@@ -1,0 +1,64 @@
+# Demo of a short, real-years-only timeline (no quarters): RAF Bomber Command's
+# WW2 heavy bomber programme, 1939-1945. Early-war twin-engined medium bombers
+# (Wellington, Whitley, Hampden) are shown converging into the three main
+# four-engined heavies (Stirling, Halifax, Lancaster) via dependency arrows,
+# since squadrons re-equipped from one type onto the next as the war progressed.
+# Dates are approximate, chosen for a clear illustrative timeline.
+
+title: "RAF Bomber Command: Heavy Bomber Convergence, 1939-1945"
+
+timeline:
+  start: "Y1939.Q1"
+  end: "Y1945.Q1"
+  fiscal_year_prefix: "Y"
+  quarters_per_year: 1
+
+domains:
+  - name: "Early-War Medium Bombers"
+    icon: "gear.png"
+    tracks:
+      - name: "Vickers Wellington"
+        events:
+          - {id: wellington_start, type: start, period: "Y1939.Q1", label: "Wellington - core of Bomber Command"}
+          - {type: delivery, period: "Y1943.Q1", label: "Withdrawn from main force"}
+      - name: "Armstrong Whitworth Whitley"
+        events:
+          - {id: whitley_start, type: start, period: "Y1939.Q1", label: "Whitley in frontline service"}
+          - {type: delivery, period: "Y1942.Q1", label: "Withdrawn from frontline"}
+      - name: "Handley Page Hampden"
+        events:
+          - {id: hampden_start, type: start, period: "Y1939.Q1", label: "Hampden in frontline service"}
+          - {type: delivery, period: "Y1942.Q1", label: "Withdrawn from frontline"}
+
+  - name: "Four-Engined Heavy Bombers"
+    icon: "gear.png"
+    tracks:
+      - name: "Short Stirling"
+        events:
+          - {type: start, period: "Y1939.Q1", label: "Stirling ordered into production"}
+          - {id: stirling_enters_service, type: milestone, period: "Y1941.Q1", label: "Stirling enters squadron service", highlight: true}
+          - {type: delivery, period: "Y1943.Q1", label: "Relegated to second-line duties"}
+      - name: "Handley Page Halifax"
+        events:
+          - {type: start, period: "Y1939.Q1", label: "Halifax ordered into production"}
+          - {id: halifax_enters_service, type: milestone, period: "Y1941.Q1", label: "Halifax enters squadron service", highlight: true}
+          - {type: delivery, period: "Y1945.Q1", label: "Major share of heavy bomber force"}
+      - name: "Avro Lancaster"
+        events:
+          - {type: start, period: "Y1940.Q1", label: "Lancaster ordered into production"}
+          - {id: lancaster_enters_service, type: milestone, period: "Y1942.Q1", label: "Lancaster enters squadron service", highlight: true}
+          - {type: delivery, period: "Y1945.Q1", label: "Backbone of Bomber Command"}
+
+dependencies:
+  - from_event: "early_war_medium_bombers.vickers_wellington.wellington_start"
+    to_event: "four_engined_heavy_bombers.short_stirling.stirling_enters_service"
+    style: dashed
+    label: "re-equips"
+  - from_event: "early_war_medium_bombers.armstrong_whitworth_whitley.whitley_start"
+    to_event: "four_engined_heavy_bombers.handley_page_halifax.halifax_enters_service"
+    style: dashed
+    label: "re-equips"
+  - from_event: "early_war_medium_bombers.handley_page_hampden.hampden_start"
+    to_event: "four_engined_heavy_bombers.avro_lancaster.lancaster_enters_service"
+    style: dashed
+    label: "re-equips"

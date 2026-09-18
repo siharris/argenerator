@@ -1,0 +1,42 @@
+title: "Architecture Roadmap"
+
+timeline:
+  start: "FY27.Q1"
+  end: "FY28.Q4"
+
+domains:
+  - id: strategic_products
+    name: "Strategic Products"
+    icon: "gear.png"
+    tracks:
+      - id: agentforce
+        name: "Agentforce Rollout"
+        events:
+          - {type: start, period: "FY27.Q1", label: "Kickoff"}
+          - {id: af_pilot, type: milestone, period: "FY27.Q3", label: "Pilot Live (Agentforce)", highlight: true}
+          - {id: af_ga, type: delivery, period: "FY28.Q2", label: "GA Release"}
+      - id: appdirect
+        name: "AppDirect Integration"
+        events:
+          - {type: milestone, period: "FY27.Q2", label: "Vendor Selected"}
+          - {id: appdirect_launch, type: delivery, period: "FY28.Q1", label: "Appdirect", highlight: true}
+
+  - id: apps_modernisation
+    name: "Applications Modernisation"
+    icon: "gear.png"
+    tracks:
+      - id: shift2cloud
+        name: "Shift2Cloud"
+        events:
+          - {type: milestone, period: "FY27.Q1", label: "Assessment Complete"}
+          - {id: s2c_migrate, type: delivery, period: "FY27.Q4", label: "Migration Wave 1"}
+      - id: eight_apps
+        name: "8 Apps Retired"
+        events:
+          - {id: apps_retired_done, type: delivery, period: "FY28.Q4", label: "8 Apps Retired"}
+
+dependencies:
+  - from_event: "strategic_products.agentforce.af_ga"
+    to_event: "apps_modernisation.shift2cloud.s2c_migrate"
+    style: dashed
+    label: "enables"

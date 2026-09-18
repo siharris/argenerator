@@ -1,0 +1,84 @@
+# Fully synthetic demo roadmap illustrating a convergence/consolidation story:
+# 4 legacy platforms merge into 2 regional platforms, which then merge into a
+# single global platform. All company, product and vendor names are invented.
+# A domain's tracks only ever fork outward from one shared branch point in this
+# renderer, so fan-in convergence is expressed with `style: converge`
+# dependencies instead: the source track's line stops at that event (rather
+# than running on to the timeline's right edge) and curves solidly into the
+# target, reading as a merge rather than an annotation arrow.
+
+title: "Platform Consolidation Roadmap"
+
+timeline:
+  start: "FY27.Q1"
+  end: "FY30.Q4"
+
+domains:
+  - name: "Legacy Regional Platforms"
+    icon: "gear.png"
+    tracks:
+      - name: "Helios (North)"
+        events:
+          - {type: start, period: "FY27.Q1", label: "Helios platform live"}
+          - {type: milestone, period: "FY27.Q4", label: "Helios feature freeze"}
+          - {id: helios_migrated, type: delivery, period: "FY28.Q3", label: "Helios migration complete"}
+      - name: "Orion (South)"
+        events:
+          - {type: start, period: "FY27.Q1", label: "Orion platform live"}
+          - {type: milestone, period: "FY27.Q4", label: "Orion feature freeze"}
+          - {id: orion_migrated, type: delivery, period: "FY28.Q3", label: "Orion migration complete"}
+      - name: "Atlas (East)"
+        events:
+          - {type: start, period: "FY27.Q1", label: "Atlas platform live"}
+          - {type: milestone, period: "FY28.Q1", label: "Atlas feature freeze"}
+          - {id: atlas_migrated, type: delivery, period: "FY29.Q1", label: "Atlas migration complete"}
+      - name: "Zephyr (West)"
+        events:
+          - {type: start, period: "FY27.Q1", label: "Zephyr platform live"}
+          - {type: milestone, period: "FY28.Q1", label: "Zephyr feature freeze"}
+          - {id: zephyr_migrated, type: delivery, period: "FY29.Q1", label: "Zephyr migration complete"}
+
+  - name: "Regional Consolidation"
+    icon: "gear.png"
+    tracks:
+      - name: "Unified EMEA Platform"
+        events:
+          - {type: start, period: "FY28.Q3", label: "Unified EMEA Platform kickoff"}
+          - {type: milestone, period: "FY29.Q1", label: "Unified EMEA Platform GA", highlight: true}
+          - {id: emea_adopted, type: delivery, period: "FY29.Q4", label: "Unified EMEA Platform fully adopted"}
+      - name: "Unified Americas Platform"
+        events:
+          - {type: start, period: "FY29.Q1", label: "Unified Americas Platform kickoff"}
+          - {type: milestone, period: "FY29.Q3", label: "Unified Americas Platform GA", highlight: true}
+          - {id: americas_adopted, type: delivery, period: "FY30.Q1", label: "Unified Americas Platform fully adopted"}
+
+  - name: "Global Platform"
+    icon: "gear.png"
+    tracks:
+      - name: "Global Unified Platform"
+        events:
+          - {type: start, period: "FY29.Q4", label: "Global Platform kickoff"}
+          - {id: global_ga, type: milestone, period: "FY30.Q2", label: "Global Unified Platform GA", highlight: true}
+          - {type: delivery, period: "FY30.Q4", label: "Global Unified Platform fully live"}
+
+dependencies:
+  # Stage 1: 4 legacy platforms converge into 2 regional platforms.
+  - from_event: "legacy_regional_platforms.helios_north.helios_migrated"
+    to_event: "regional_consolidation.unified_emea_platform.emea_adopted"
+    style: converge
+  - from_event: "legacy_regional_platforms.orion_south.orion_migrated"
+    to_event: "regional_consolidation.unified_emea_platform.emea_adopted"
+    style: converge
+  - from_event: "legacy_regional_platforms.atlas_east.atlas_migrated"
+    to_event: "regional_consolidation.unified_americas_platform.americas_adopted"
+    style: converge
+  - from_event: "legacy_regional_platforms.zephyr_west.zephyr_migrated"
+    to_event: "regional_consolidation.unified_americas_platform.americas_adopted"
+    style: converge
+  # Stage 2: the 2 regional platforms converge into 1 global platform.
+  - from_event: "regional_consolidation.unified_emea_platform.emea_adopted"
+    to_event: "global_platform.global_unified_platform.global_ga"
+    style: converge
+  - from_event: "regional_consolidation.unified_americas_platform.americas_adopted"
+    to_event: "global_platform.global_unified_platform.global_ga"
+    style: converge

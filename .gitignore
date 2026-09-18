@@ -12,6 +12,14 @@ dist/
 
 # Compiled Python bytecode
 *.py[cod]
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+
+# Scratch space for locally rendered/preview output, never committed
+/tmp/
 
 # Log files
 *.log
